@@ -1,3 +1,6 @@
+XPath Playground 
+
+Input
 <article class=“main-article”>
        <h1> Titanic ( 1997 ) </h1> // Title 
        <p class=“plot”> 84 years later… </p> // Description 
@@ -7,3 +10,149 @@
                “Okay, take her up and over the bow rail.”
        </div> // Transcription
 </article>
+
+XPath
+//h1
+Result
+<h1> Titanic ( 1997 ) </h1>
+XPath
+//h1/text()
+Result
+Titanic(1997)
+XPath
+//p
+Result
+<p class=“plot”> 84 years later… </p> // Description 
+<p class=“plot2”> In the end </p>
+XPath
+//p[1]
+Result
+<p class=“plot”> 84 years later… </p> // Description 
+XPath
+//p[2]
+Result
+<p class=“plot2”> In the end </p>
+XPath
+//div
+Result
+<div class=“full-script”> “
+       13 meters. You should see it.” 
+        “Okay, take her up and over the bow rail.”
+</div> // Transcription
+XPath
+//div/text()
+Result
+“13 meters. You should see it.” 
+“Okay, take her up and over the bow rail.”
+XPath
+//div[@class=“full-script]
+Result”
+<div class=“full-script”> “13 meters. You should see it.” “Okay, take her up and over the bow rail.”
+</div> // Transcription
+XPath
+//div[@class=“full-script]/text()
+Result”
+“13 meters. You should see it.” “Okay, take her up and over the bow rail.”
+XPath
+//p[(@class=“plot”) or (@class=“plot2”)]
+Result
+<p class=“plot”> 84 years later… </p> // Description 
+<p class=“plot2”> In the end </p>
+XPath
+//p[contains(@class, “plot”)]
+Result
+<p class=“plot”> 84 years later… </p> // Description 
+<p class=“plot2”> In the end </p>
+XPath
+//div[contains(@class, “script”)]
+Result
+<div class=“full-script”> “13 meters. You should see it.” “Okay, take her up and over the bow rail.”
+</div> // Transcription
+
+Web Automation and Web Scraping: XPath-Special Characters
+
+Special Characters
+/: Select the children from the node set on the left side of this character
+//: Specifies that the matching node set should be located at any level within the document
+. : Specifies the current context should be used ( refers to present node )
+. . : Refers to a parent node
+*: A wildcard character that selects all elements or attributes regardless of names
+./*: Select all the children nodes considering the current context
+@: Select an attribute
+(): Grouping an XPath expression
+[n]: Indicates that a node with index “n” should be selected
+
+XPath Playground 
+XPath
+//article
+Result
+<article class=“main-article”>
+       <h1> Titanic ( 1997 ) </h1> // Title 
+       <p class=“plot”> 84 years later… </p> // Description 
+       <p class=“plot2”> In the end </p>
+       <div class=“full-script”> 
+               “13 meters. You should see it.” 
+               “Okay, take her up and over the bow rail.”
+       </div> // Transcription
+</article>
+XPath
+//article/h1
+Result
+  <h1> Titanic ( 1997 ) </h1> // Title 
+XPath
+//article/p
+<p class=“plot”> 84 years later… </p> // Description 
+<p class=“plot2”> In the end </p>
+XPath
+//article/div
+Result
+<div class=“full-script”> 
+       “13 meters. You should see it.” 
+       “Okay, take her up and over the bow rail.”
+</div> // Transcription
+XPath
+//article/h1/text()
+Result
+Titanic(1997)
+XPath
+//article//text()
+Result
+Titanic(1997)
+84 years later…
+XPath
+//h1
+Result
+<h1> Titanic ( 1997 ) </h1> // Title 
+Xpath
+//h1/.
+Result
+<h1> Titanic ( 1997 ) </h1> // Title
+XPath
+//h1/..
+Result
+<article class=“main-article”>
+       <h1> Titanic ( 1997 ) </h1> // Title 
+       <p class=“plot”> 84 years later… </p> // Description 
+       <p class=“plot2”> In the end </p>
+       <div class=“full-script”> 
+               “13 meters. You should see it.” 
+               “Okay, take her up and over the bow rail.”
+       </div> // Transcription
+</article>
+XPath
+//article/*
+Result
+<h1> Titanic ( 1997 ) </h1> // Title 
+       <p class=“plot”> 84 years later… </p> // Description 
+       <p class=“plot2”> In the end </p>
+ <div class=“full-script”> 
+        “13 meters. You should see it.” 
+        “Okay, take her up and over the bow rail.”
+</div> // Transcription
+XPath
+//article/*/text()
+Result
+Titanic(1997)
+83 years later…
+“13 meters. You should see it.” “Okay, take her up and over the bow rail.”
+
